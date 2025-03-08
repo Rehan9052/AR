@@ -1,0 +1,21 @@
+# netlify.toml
+# Configuration file for Netlify deployment
+
+[build]
+  # Directory to publish (the build output)
+  publish = "dist"
+  # Build command
+  command = "npm run build"
+
+# Handle SPA routing by redirecting all paths to index.html
+# This is necessary for React Router to work correctly
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Set environment variables for production
+[build.environment]
+  # Production environment variables can be set here
+  # Or they can be set in the Netlify dashboard
+  NODE_VERSION = "18"
